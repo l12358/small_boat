@@ -1,0 +1,13 @@
+To launch joystick
+ros2 launch teleop_twist_joy teleop-launch.py joy_config:='xbox' joy_dev:='0'0'
+
+
+To launch all rpi stuff for manual control:
+
+rpi4@rpi4:~/robot_ws$ colcon build --symlink-install
+rpi4@rpi4:~/robot_ws$ sourc install/setup.bash
+rpi4@rpi4:~/robot_ws$ ros2 run mdds30_driver cmdvel_to_mdds30 --ros-args -p port:=/dev/ttyAMA1 -p baud:=9600
+
+
+If needed to edit code:
+rpi4@rpi4:~/robot_ws/src/mdds30_driver/mdds30_driver$ nano cmdvel_to_mdds30.py
